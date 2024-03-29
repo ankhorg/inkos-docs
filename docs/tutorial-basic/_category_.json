@@ -1,0 +1,9 @@
+{
+  "label": "基础",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "tutorial-basic",
+    "description": "学会 InkOS 最重要的概念，以及基本的使用。"
+  }
+}
