@@ -1,0 +1,9 @@
+{
+  "label": "API 使用",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "slug": "tutorial-api",
+    "description": "快速从您的插件调用 InkOS。"
+  }
+}
