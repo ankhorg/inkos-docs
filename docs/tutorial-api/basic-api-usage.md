@@ -70,11 +70,25 @@ dependencies {
 </Tabs>
 
 ## 使用 API
+
+InkOS.get* 接受的参数为 `Player`、 `key` 及 `defaultValue`，其中 `Player` 为玩家对象，`key` 为变量名称，`defaultValue` 为默认值。`defaultValue` 可以被省略。
+
+InkOS.require* 接受的参数为 `Player` 及 `key`，其中 `Player` 为玩家对象，`key` 为变量名称。
+
+当变量不存在时，`InkOS.get*` 会返回 `defaultValue`，如未指定 `defaultValue` 则返回 `null`。而 `InkOS.require*` 会抛出 `IllegalArgumentException`。
+
+InkOS.set* 接受的参数为 `Player`、 `key` 及 `value`，其中 `Player` 为玩家对象，`key` 为变量名称，`value` 为变量值。
+
 ```java
 import bot.inker.inkos.InkOS;
 
 InkOS.setBytes(player, "dev.testbytes", new byte[]{ 1, 2, 3});
 InkOS.getBytes(player, "dev.testbytes"); // [1, 2, 3]
+InkOS.getBytes(player, "dev.testbytes1"); // null
+InkOS.getBytes(player, "dev.testbytes", new byte[2, 3,4]); // [1, 2, 3]
+InkOS.getBytes(player, "dev.testbytes1", new byte[2, 3,4]); // [2, 3, 4]
+InkOS.requireBytes(player, "dev.testbytes"); // [1, 2, 3]
+InkOS.requireBytes(player, "dev.testbytes1"); // throw IllegalArgumentException
 
 InkOS.setString(player, "dev.teststring", "world");
 InkOS.getString(player, "dev.teststring"); // "world"
