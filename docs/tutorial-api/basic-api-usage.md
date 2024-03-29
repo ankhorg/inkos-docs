@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="build-system-type">
 <TabItem value="gradle-kts" label="Gradle kts" default>
 添加 Maven 仓库到 build.gradle.kts 文件：
-```kts
+```kotlin title="build.gradle.kts"
 repositories {
     maven("https://packages.inksnow.org/maven/p/ankh-plugin/maven")
 }
@@ -19,7 +19,7 @@ repositories {
 </TabItem>
 <TabItem value="gradle" label="Gradle groovy">
 添加 Maven 仓库到 build.gradle.kts 文件：
-```groovy
+```groovy title="build.gradle"
 repositories {
     maven { url 'https://packages.inksnow.org/maven/p/ankh-plugin/maven' }
 }
@@ -27,7 +27,7 @@ repositories {
 </TabItem>
 <TabItem value="maven" label="Maven">
 添加 Maven 仓库到 pom.xml 文件：
-```xml
+```xml title="pom.xml"
 <repositories>
     <repository>
         <id>ankh-plugin</id>
@@ -42,7 +42,7 @@ repositories {
 <Tabs groupId="build-system-type">
 <TabItem value="gradle-kts" label="Gradle kts" default>
 添加依赖到 build.gradle.kts 文件：
-```kts
+```kotlin title="build.gradle.kts"
 dependencies {
     compileOnly("bot.inker.inkos:bukkit-api:1.0.13")
 }
@@ -50,7 +50,7 @@ dependencies {
 </TabItem>
 <TabItem value="gradle" label="Gradle groovy">
 添加依赖到 build.gradle.kts 文件：
-```groovy
+```groovy title="build.gradle"
 dependencies {
     compileOnly 'bot.inker.inkos:bukkit-api:1.0.13'
 }
@@ -58,7 +58,7 @@ dependencies {
 </TabItem>
 <TabItem value="maven" label="Maven">
 添加依赖到 pom.xml 文件：
-```xml
+```xml title="pom.xml"
 <dependency>
     <groupId>bot.inker.inkos</groupId>
     <artifactId>bukkit-api</artifactId>
