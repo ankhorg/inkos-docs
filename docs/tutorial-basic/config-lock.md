@@ -18,8 +18,7 @@ lock:
 
 ## 支持的玩家锁存储后端
 
-### [PostgreSQL](https://www.postgresql.org/)
-
+### [postgres](https://www.postgresql.org/)
 PostgreSQL 需要五个配置项：
 
 - `host` 数据库地址，格式为 `host:port`
@@ -28,7 +27,7 @@ PostgreSQL 需要五个配置项：
 - `password` 数据库密码
 - `tableName` 数据库表名
 
-### [MySQL](https://www.mysql.com/)
+### [mysql](https://www.mysql.com/)
 
 MySQL 需要五个配置项：
 
@@ -38,11 +37,28 @@ MySQL 需要五个配置项：
 - `password` 数据库密码
 - `tableName` 数据库表名
 
+### [redis-sync](https://redis.com/)
+### [redis-async](https://redis.com/)
+
+Redis 需要三个配置项：
+
+- `host` 数据库地址，格式为 `host:port`
+- `instancePrefix` 实例锁的前缀
+- `playerPrefix` 玩家锁的前缀
+
+如果选择 `redis-sync`，则使用同步锁
+
+如果选择 `redis-async`，则异步加锁
+
 ## 玩家锁使用
 
-如果你的数据后端为 `PostgreSQL` 或 `MySQL`，你必须使用玩家锁。
+如果你的数据后端为 `postgres`, `mysql` 或 `redis-async`，你必须使用玩家锁。
 
-如果你的数据后端为 `InkDB` 或 `LevelDB`，你不需要使用玩家锁。
+如果你的数据后端为 `inkdb`, `leveldb` 或 `redis-sync`，你不需要使用玩家锁。
+
+如果您需要玩家锁，我们建议您使用 `redis-sync`，因为它是最快的。
+
+如果玩家进服务时无论如何都会创建一个锁是可接受的，您也可以使用 `redis-async`。
 
 启用玩家锁后，当玩家进入服务器时，InkOS 会自动为玩家创建一个锁，当玩家退出服务器时，InkOS 会自动删除玩家的锁。
 
